@@ -22,6 +22,7 @@
       * [Plugin Services](basics/plugin_structure/plugin_services.html)
       * [Plugin Configuration File](basics/plugin_structure/plugin_configuration_file.html)
       * [Plugin Dependencies](basics/plugin_structure/plugin_dependencies.html)
+  * [PHPStorm and WebStorm Open API](basics/php_openapi.html)
   * [Architectural Overview](basics/architectural_overview.html)
     * [General Threading Rules](basics/architectural_overview/general_threading_rules.html)
     * [Virtual Files](basics/architectural_overview/virtual_file.html)
