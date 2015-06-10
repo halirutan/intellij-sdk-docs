@@ -5,7 +5,6 @@ task :preview do
 
   Rake::Task["build_toc"].invoke
   Rake::Task["build_ui_config"].invoke
-  Rake::Task['prepare_assets'].invoke
 
   command = "jekyll serve --trace  --host=#{host} --port=#{port} --watch --force_polling"
   sh command

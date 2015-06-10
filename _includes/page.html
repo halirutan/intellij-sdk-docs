@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>{{page_title}} / {{product_name}} {{product_version}} {{site.product_type | default: 'Web Help'}}</title>
+    <link rel="stylesheet" href="http://www.jetbrains.org/intellij/sdk/docs/app/styles.css">
+</head>
+<body data-id="{{page_id}}">
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5P98"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5P98');</script>
+<!-- End Google Tag Manager -->
+<div class="wrapper">
+    <section class="panel _nav">
+        <header class="panel__header">
+            <div class="container">
+                <form class="search-box">
+                    <label for="search-box__input" class="search-box__label">
+                        <input type="text" class="search-box__input" id="search-box__input" placeholder="Search {{product_name}} {{product_version}} {{site.product_type | default: 'Help'}}">
+                    </label>
+                    <div class="search-box__clear" title="Clear"></div>
+                </form>
+            </div>
+        </header>
+        <nav class="panel__content">
+            <div class="container _nav">
+                <menu class="nav-tree"></menu>
+            </div>
+            <div class="container _footer panel__footer">
+                <p><a href="mailto:feedback@jetbrains.com">Send feedback</a></p>
+                <p>&copy; 2000&ndash;{{current_year}} <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
+                    All rights reserved.</p>
+            </div>
+        </nav>
+    </section>
+
+    <main class="panel _main" role="main">
+        <header class="panel__header">
+            <div class="container">
+                <h3>{{product_name}} {{site.product_type | default: 'Web Help'}}</h3>
+                {{shortcut_switcher}}
+                <div class="panel-trigger"></div>
+            </div>
+        </header>
+        <section class="panel__content">
+            <div class="container">
+                <article class="article" data-shortcut-switcher="{{is_show_shortcut_switcher}}">
+
+                    {{page_title_with_h1}}
+                    {{page_content}}
+
+                    <div class="last-modified">
+                        {{last_modified}}
+                    </div>
+                </article>
+
+                <section class="disqus">
+                    <div id="disqus_thread"></div>
+                </section>
+            </div>
+        </section>
+    </main>
+</div>
+
+
+<script data-baseurl="{{app_baseurl}}" src="http://www.jetbrains.org/intellij/sdk/docs/app/app.js"></script>
+
+</body>
+</html>
