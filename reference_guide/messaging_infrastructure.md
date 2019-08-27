@@ -9,34 +9,32 @@ The purpose of this document is to introduce the messaging infrastructure availa
 
 # Rationale
 
-So, what is messaging in the IntelliJ Platform and why do we need it? Basically, its implementation of
-[Observer pattern](https://en.wikipedia.org/wiki/Observer_pattern)
-that provides additional features like _broadcasting on hierarchy_ and special _nested events_ processing (_nested event_ here is a situation when new event is fired (directly or indirectly) from the callback of another event).
-
+Messaging in the IntelliJ Platform is, basically, an implementation of the 
+[observer pattern](https://en.wikipedia.org/wiki/Observer_pattern)
+which provides additional features like _broadcasting on hierarchy_ and special _nested events_ processing. Here, a _nested event_ is a situation when a new event is fired (directly or indirectly) from the callback of another event.
 # Design
 
-Here are the main components of the messaging API.
+The main components of the messaging API are the following classes:
 
 ## Topic
 
-This class serves as an endpoint at the messaging infrastructure. I.e. clients are allowed to subscribe to the topic within particular bus and to send messages to particular topic within particular bus.
+A `Topic` serves as an endpoint in the messaging infrastructure. Clients are allowed to subscribe to a topic within a particular bus, and they can send messages to specific topics within a bus.
 
 ![Topic](img/topic.png)
 
-*  *display name*  just a human-readable name used for logging/monitoring purposes;
-*  *broadcast direction*  will be explained in details at Broadcasting. Default value is *TO\_CHILDREN*;
-*  *listener class*  that is a business interface for particular topic.
-Subscribers register implementation of this interface at the messaging infrastructure and publishers may later retrieve object that conforms (IS-A) to it and call any method defined there. Messaging infrastructure takes care on dispatching that to all subscribers of the topic, i.e. the same method with the same arguments will be called on the registered callbacks;
+*  *display name*  is a human-readable name used for logging and monitoring purposes
+*  *broadcast direction*  will be explained in the Broadcasting section. Its default value is *TO\_CHILDREN*;
+*  *listener class*  is a business interface for a particular topic.Subscribers provide an implementation of this interface at the messaging infrastructure. Publishers may later retrieve an object that conforms (IS-A) to it, and they can call any method defined there. The messaging infrastructure takes care of dispatching messages to all subscribers of the topic, i.e. the same method with the same arguments will be called on the registered callbacks;
 
-## Message bus
+## Message Bus
 
-Is the core of the messaging system. Is used at the following scenarios:
+The `MessageBus` is the core of the messaging system. It is used in the following scenarios:
 
 ![Bus](img/bus.png)
 
 ## Connection
 
-Manages all subscriptions for particular client within particular bus.
+A `Connection` manages all subscriptions for a particular client within a particular bus.
 
 ![Connection](img/connection.png)
 
@@ -227,3 +225,6 @@ We had the following then:
 **The problem**  is that document range used by _subscriber1_ for initial modification request is invalid if _subscriber2_ has changed document's range before it.
 
 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMjAwNjQ5OTkxNV19
+-->
