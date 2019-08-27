@@ -9,9 +9,7 @@ The purpose of this document is to introduce the messaging infrastructure availa
 
 # Rationale
 
-Messaging in the IntelliJ Platform is, basically, an implementation of the 
-[observer pattern](https://en.wikipedia.org/wiki/Observer_pattern)
-which provides additional features like _broadcasting on hierarchy_ and special _nested events_ processing. Here, a _nested event_ is a situation when a new event is fired (directly or indirectly) from the callback of another event.
+Messaging in the IntelliJ Platform is, basically, an implementation of the [observer pattern](https://en.wikipedia.org/wiki/Observer_pattern) which provides additional features like _broadcasting on hierarchy_ and special _nested events_ processing. Here, a _nested event_ is a situation when a new event is fired (directly or indirectly) from the callback of another event.
 # Design
 
 The main components of the messaging API are the following classes:
@@ -226,5 +224,5 @@ We had the following then:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAwNjQ5OTkxNV19
+eyJoaXN0b3J5IjpbLTI4NjE4ODEyMywyMDA2NDk5OTE1XX0=
 -->
